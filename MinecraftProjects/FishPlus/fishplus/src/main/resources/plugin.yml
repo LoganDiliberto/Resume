@@ -1,0 +1,14 @@
+main: dev.nagolmc.spigot.fishplus.App
+name: FishPlus
+version: 0.1
+api-version: 1.16
+description: This plugin does so much stuff it can't be contained!
+author: Nagol
+soft-depend: [TokenManager]
+depend: [Vault]
+
+commands:
+  hello:
+  getrod:
+  getcommontreasure:
+  gettestrod:

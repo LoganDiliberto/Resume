@@ -128,6 +128,7 @@ public class inventories {
         meta.setDisplayName(ChatColor.AQUA +"Greed ");
         item.setType(Material.GOLD_INGOT);
         lore.add(ChatColor.RED + String.valueOf(plugin.greed.getLevel("Greed",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "100");
+        lore.add(ChatColor.WHITE + "Price: " + ChatColor.YELLOW + String.valueOf((plugin.greed.getLevel("Greed",loreT)+1)*250) + ChatColor.AQUA + " F-Tokens");
         lore.add(ChatColor.GRAY + "Increases the value of fish");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -136,7 +137,8 @@ public class inventories {
         lore.clear();
         meta.setDisplayName(ChatColor.AQUA +"Multi-Hook ");
         item.setType(Material.TRIPWIRE_HOOK);
-        lore.add(ChatColor.RED + String.valueOf(plugin.multihook.getLevel("Multi-Hook",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "100");
+        lore.add(ChatColor.RED + String.valueOf(plugin.multihook.getLevel("Multi-Hook",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "5");
+        lore.add(ChatColor.WHITE + "Price: " + ChatColor.YELLOW + String.valueOf((plugin.multihook.getLevel("Greed",loreT)+1)*5000) + ChatColor.AQUA + " F-Tokens");
         lore.add(ChatColor.GRAY + "Chance of catching more than 1 item at a time");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -145,7 +147,8 @@ public class inventories {
         lore.clear();
         meta.setDisplayName(ChatColor.AQUA +"Treasure-Finder ");
         item.setType(Material.ENDER_CHEST);
-        lore.add(ChatColor.RED + String.valueOf(plugin.treasurefinder.getLevel("Treasure-Finder",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "100");
+        lore.add(ChatColor.RED + String.valueOf(plugin.treasurefinder.getLevel("Treasure-Finder",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "25");
+        lore.add(ChatColor.WHITE + "Price: " + ChatColor.YELLOW + String.valueOf((plugin.treasurefinder.getLevel("Treasure-Finder",loreT)+1)*250) + ChatColor.AQUA + " F-Tokens");
         lore.add(ChatColor.GRAY + "Increases the chance of catching treasure");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -154,7 +157,8 @@ public class inventories {
         lore.clear();
         meta.setDisplayName(ChatColor.AQUA +"Pirate ");
         item.setType(Material.GOLD_NUGGET);
-        lore.add(ChatColor.RED + String.valueOf(plugin.pirate.getLevel("Pirate",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "100");
+        lore.add(ChatColor.RED + String.valueOf(plugin.pirate.getLevel("Pirate",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "10");
+        lore.add(ChatColor.WHITE + "Price: " + ChatColor.YELLOW + String.valueOf((plugin.pirate.getLevel("Greed",loreT)+1)*10000) + ChatColor.AQUA + " F-Tokens");
         lore.add(ChatColor.GRAY + "Find higher level treaure chests");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -163,7 +167,8 @@ public class inventories {
         lore.clear();
         meta.setDisplayName(ChatColor.AQUA +"Shard-Hunter ");
         item.setType(Material.NETHER_STAR);
-        lore.add(ChatColor.RED + String.valueOf(plugin.shardhunter.getLevel("Shard-Hunter",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "100");
+        lore.add(ChatColor.RED + String.valueOf(plugin.shardhunter.getLevel("Shard-Hunter",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "25");
+        lore.add(ChatColor.WHITE + "Price: " + ChatColor.YELLOW + String.valueOf((plugin.shardhunter.getLevel("Shard-Hunter",loreT)+1)*250) + ChatColor.AQUA + " F-Tokens");
         lore.add(ChatColor.GRAY + "Increases the chance of catching shards");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -172,7 +177,8 @@ public class inventories {
         lore.clear();
         meta.setDisplayName(ChatColor.AQUA +"Mob-Catcher ");
         item.setType(Material.EGG);
-        lore.add(ChatColor.RED + String.valueOf(plugin.mobcatcher.getLevel("Mob-Catcher",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "100");
+        lore.add(ChatColor.RED + String.valueOf(plugin.mobcatcher.getLevel("Mob-Catcher",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "25");
+        lore.add(ChatColor.WHITE + "Price: " + ChatColor.YELLOW + String.valueOf((plugin.mobcatcher.getLevel("Greed",loreT)+1)*250) + ChatColor.AQUA + " F-Tokens");
         lore.add(ChatColor.GRAY + "Increases the chance of catching mobs");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -181,7 +187,8 @@ public class inventories {
         lore.clear();
         meta.setDisplayName(ChatColor.AQUA +"Mob-Expert ");
         item.setType(Material.ZOMBIE_SPAWN_EGG);
-        lore.add(ChatColor.RED + String.valueOf(plugin.mobexpert.getLevel("Mob-Expert",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "100");
+        lore.add(ChatColor.RED + String.valueOf(plugin.mobexpert.getLevel("Mob-Expert",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "10");
+        lore.add(ChatColor.WHITE + "Price: " + ChatColor.YELLOW + String.valueOf((plugin.mobexpert.getLevel("Mob-Expert",loreT)+1)*250) + ChatColor.AQUA + " F-Tokens");
         lore.add(ChatColor.GRAY + "Catcher higher tiered mobs");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -190,7 +197,8 @@ public class inventories {
         lore.clear();
         meta.setDisplayName(ChatColor.AQUA +"Key-Finder ");
         item.setType(Material.HEART_OF_THE_SEA);
-        lore.add(ChatColor.RED + String.valueOf(plugin.keyfinder.getLevel("Key-Finder",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "100");
+        lore.add(ChatColor.RED + String.valueOf(plugin.keyfinder.getLevel("Key-Finder",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "10");
+        lore.add(ChatColor.WHITE + "Price: " + ChatColor.YELLOW + String.valueOf((plugin.keyfinder.getLevel("Key-Finder",loreT)+1)*1000) + ChatColor.AQUA + " F-Tokens");
         lore.add(ChatColor.GRAY + "Increased chance of finding crate keys");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -199,7 +207,8 @@ public class inventories {
         lore.clear();
         meta.setDisplayName(ChatColor.AQUA +"Sponge ");
         item.setType(Material.SPONGE);
-        lore.add(ChatColor.RED + String.valueOf(plugin.sponge.getLevel("Sponge",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "100");
+        lore.add(ChatColor.RED + String.valueOf(plugin.sponge.getLevel("Sponge",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "1000");
+        lore.add(ChatColor.WHITE + "Price: " + ChatColor.YELLOW + String.valueOf((plugin.greed.getLevel("Greed",loreT)+1)*1000) + ChatColor.AQUA + " F-Tokens");
         lore.add(ChatColor.GRAY + "Increased chance of catching sponges");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -209,6 +218,7 @@ public class inventories {
         meta.setDisplayName(ChatColor.AQUA +"Thiccc ");
         item.setType(Material.PORKCHOP);
         lore.add(ChatColor.RED + String.valueOf(plugin.thiccc.getLevel("Thiccc",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "100");
+        lore.add(ChatColor.WHITE + "Price: " + ChatColor.YELLOW + String.valueOf((plugin.thiccc.getLevel("Thiccc",loreT)+1)*250) + ChatColor.AQUA + " F-Tokens");
         lore.add(ChatColor.GRAY + "Increased odds of getting thicccer fish");
         meta.setLore(lore);
         item.setItemMeta(meta);
@@ -218,6 +228,7 @@ public class inventories {
         meta.setDisplayName(ChatColor.AQUA +"Long-Boiii ");
         item.setType(Material.STICK);
         lore.add(ChatColor.RED + String.valueOf(plugin.longboiii.getLevel("Long-Boiii",loreT)) + ChatColor.GRAY + "/" + ChatColor.GREEN + "100");
+        lore.add(ChatColor.WHITE + "Price: " + ChatColor.YELLOW + String.valueOf((plugin.longboiii.getLevel("Long-Boiii",loreT)+1)*250) + ChatColor.AQUA + " F-Tokens");
         lore.add(ChatColor.GRAY + "Increased odds of getting longer fish");
         meta.setLore(lore);
         item.setItemMeta(meta);

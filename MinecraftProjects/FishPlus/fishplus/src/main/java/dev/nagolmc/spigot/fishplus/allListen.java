@@ -172,16 +172,18 @@ public class allListen implements Listener{
         }
 
         //Open Treasure 
-        if(event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Treasure")){
-            if(event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasLore()){
-                if(event.getAction() == Action.RIGHT_CLICK_AIR){
-
-                    ItemStack[] treasure;
-                    treasure = plugin.warehouse.getCommonTreasureLootTable();
-
-                    //Check what kind of crate it is and spin that one TODO
-                    plugin.crates.spin(player, treasure);
-                    player.sendMessage("Opened a Common Treasure");
+        if(event.getPlayer.getInventory().getItemInMainHand() != null){
+            if(event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Treasure")){
+                if(event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasLore()){
+                    if(event.getAction() == Action.RIGHT_CLICK_AIR){
+    
+                        ItemStack[] treasure;
+                        treasure = plugin.warehouse.getCommonTreasureLootTable();
+    
+                        //Check what kind of crate it is and spin that one TODO
+                        plugin.crates.spin(player, treasure);
+                        player.sendMessage("Opened a Common Treasure");
+                    }
                 }
             }
         }

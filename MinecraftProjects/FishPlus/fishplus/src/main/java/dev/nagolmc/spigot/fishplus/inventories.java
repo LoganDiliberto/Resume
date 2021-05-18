@@ -75,6 +75,22 @@ public class inventories {
         return "0";
     }
 
+    public Inventory lakeGUI(Player player){
+        Inventory inv = Bukkit.createInventory(player, 45, ChatColor.GOLD + "" + ChatColor.BOLD + "Lake GUI");
+
+        ItemStack item = new ItemStack(Material.LIME_DYE);
+        ItemMeta meta = item.getItemMeta();
+        List<String> lore = new ArrayList<String>();
+        List<String> loreT = new ArrayList<String>();
+
+        lore.clear();
+        meta.setDisplayName(ChatColor.GREEN +"Teleport to Lake");
+        item.setItemMeta(meta);
+        inv.setItem(22, item);
+
+        return inv;
+    }
+
 
     //The Upgrade a Rod Window
     public Inventory createUpgradeUI(Player player){

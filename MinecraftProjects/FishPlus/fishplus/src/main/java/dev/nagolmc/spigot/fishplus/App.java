@@ -67,14 +67,21 @@ import dev.nagolmc.spigot.fishplus.enchants.SHARDHUNTER;
 import dev.nagolmc.spigot.fishplus.enchants.SPONGE;
 import dev.nagolmc.spigot.fishplus.enchants.THICCC;
 import dev.nagolmc.spigot.fishplus.enchants.TREASUREFINDER;
+import dev.nagolmc.spigot.fishplus.lake.Data;
+import dev.nagolmc.spigot.fishplus.lake.CMD_lake;
+import dev.nagolmc.spigot.fishplus.lake.Lake;
+import dev.nagolmc.spigot.fishplus.lake.LakeManager;
+import dev.nagolmc.spigot.fishplus.lake.PlayerUtil;
 //import dev.nagolmc.spigot.fishplus.scoreboard;
 
 public class App extends JavaPlugin{
+
+    public static App instance;
     
     ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
 
     //Starting Variables
-    Economy eco = null;
+    public static Economy eco = null;
     public MySQL SQL;
     public SQLGetter data;
     public itemWarehouse warehouse;
@@ -138,6 +145,12 @@ public class App extends JavaPlugin{
             data.createTable();
         }
 
+        //Load Configs
+        loadConfigs();
+
+        //Register Commands
+        getCommand("lake").setExecutor(new CMD_lake());
+
         //Add Custom Recipies
         //Bukkit.addRecipe(getRecipe());
 
@@ -166,6 +179,106 @@ public class App extends JavaPlugin{
     @Override
     public void onDisable() {
         getLogger().info("See you again, SpigotMC!"); 
+    }
+
+    public void loadConfigs() {
+
+        /*if(!Data.minesconf_cfg.contains("MineSetup")) {
+            Data.minesconf_cfg.set("MineSetup.Current", 0);
+            Data.minesconf_cfg.set("MineSetup.Distance", 600);
+            Data.minesconf_cfg.set("MineSetup.World", "world");
+            Data.minesconf_cfg.set("MineSetup.Radius", 4);
+            Data.minesconf_cfg.set("MineSetup.BorderRadius", 50);
+            Data.minesconf_cfg.set("MineSetup.Schematic", "Mine");
+        }*/
+
+        if(!Data.level_cfg.contains("LevelInfo")) {
+            Data.level_cfg.set("LevelInfo.Level1.Next", 2);
+            Data.level_cfg.set("LevelInfo.Level1.Cost", 100);
+
+            Data.level_cfg.set("LevelInfo.Level2.Next", 3);
+            Data.level_cfg.set("LevelInfo.Level2.Cost", 200);
+
+            Data.level_cfg.set("LevelInfo.Level3.Next", 4);
+            Data.level_cfg.set("LevelInfo.Level3.Cost", 300);
+
+            Data.level_cfg.set("LevelInfo.Level4.Next", 5);
+            Data.level_cfg.set("LevelInfo.Level4.Cost", 400);
+
+            Data.level_cfg.set("LevelInfo.Level5.Next", 6);
+            Data.level_cfg.set("LevelInfo.Level5.Cost", 500);
+
+            Data.level_cfg.set("LevelInfo.Level6.Next", 7);
+            Data.level_cfg.set("LevelInfo.Level6.Cost", 600);
+
+            Data.level_cfg.set("LevelInfo.Level7.Next", 8);
+            Data.level_cfg.set("LevelInfo.Level7.Cost", 700);
+        }
+
+        if(!Data.level_cfg.contains("Blocks")) {
+            ArrayList<String> blocks = new ArrayList<>();
+            blocks.add(Bukkit.createBlockData(Material.COBBLESTONE).getAsString());
+            blocks.add(Bukkit.createBlockData(Material.COAL_ORE).getAsString());
+            blocks.add(Bukkit.createBlockData(Material.COBBLESTONE).getAsString());
+            Data.level_cfg.set("Blocks.Level1", blocks);
+
+            ArrayList<String> blocks2 = new ArrayList<>();
+            blocks2.add(Bukkit.createBlockData(Material.COBBLESTONE).getAsString());
+            blocks2.add(Bukkit.createBlockData(Material.IRON_ORE).getAsString());
+            blocks2.add(Bukkit.createBlockData(Material.STONE).getAsString());
+            Data.level_cfg.set("Blocks.Level2", blocks2);
+
+            ArrayList<String> blocks3 = new ArrayList<>();
+            blocks3.add(Bukkit.createBlockData(Material.COBBLESTONE).getAsString());
+            blocks3.add(Bukkit.createBlockData(Material.LAPIS_ORE).getAsString());
+            blocks3.add(Bukkit.createBlockData(Material.STONE).getAsString());
+            Data.level_cfg.set("Blocks.Level3", blocks3);
+
+            ArrayList<String> blocks4 = new ArrayList<>();
+            blocks4.add(Bukkit.createBlockData(Material.COBBLESTONE).getAsString());
+            blocks4.add(Bukkit.createBlockData(Material.REDSTONE_ORE).getAsString());
+            blocks4.add(Bukkit.createBlockData(Material.STONE).getAsString());
+            Data.level_cfg.set("Blocks.Level4", blocks4);
+
+            ArrayList<String> blocks5 = new ArrayList<>();
+            blocks5.add(Bukkit.createBlockData(Material.NETHERRACK).getAsString());
+            blocks5.add(Bukkit.createBlockData(Material.NETHER_QUARTZ_ORE).getAsString());
+            blocks5.add(Bukkit.createBlockData(Material.NETHER_BRICK_WALL).getAsString());
+            Data.level_cfg.set("Blocks.Level5", blocks5);
+
+            ArrayList<String> blocks6 = new ArrayList<>();
+            blocks6.add(Bukkit.createBlockData(Material.COBBLESTONE).getAsString());
+            blocks6.add(Bukkit.createBlockData(Material.GOLD_ORE).getAsString());
+            blocks6.add(Bukkit.createBlockData(Material.STONE).getAsString());
+            Data.level_cfg.set("Blocks.Level6", blocks6);
+
+            ArrayList<String> blocks7 = new ArrayList<>();
+            blocks7.add(Bukkit.createBlockData(Material.COBBLESTONE).getAsString());
+            blocks7.add(Bukkit.createBlockData(Material.DIAMOND_ORE).getAsString());
+            blocks7.add(Bukkit.createBlockData(Material.STONE).getAsString());
+            Data.level_cfg.set("Blocks.Level7", blocks7);
+
+            ArrayList<String> blocks8 = new ArrayList<>();
+            blocks8.add(Bukkit.createBlockData(Material.COBBLESTONE).getAsString());
+            blocks8.add(Bukkit.createBlockData(Material.EMERALD_ORE).getAsString());
+            blocks8.add(Bukkit.createBlockData(Material.STONE).getAsString());
+            Data.level_cfg.set("Blocks.Level8", blocks8);
+        }
+
+        Data.saveCfg();
+
+        LakeManager lakeManager = new LakeManager();
+        lakeManager.loadLakes();
+
+        /*Schematic schematicEmpty = new Schematic("");
+        if(schematicEmpty.listAll().size() != 0) {
+            schematicEmpty.listAll().forEach(schematic -> {
+                Schematic schematicStore = new Schematic(schematic);
+                schematicStore.load();
+                Data.schematics.put(schematic, schematicStore);
+                Bukkit.getServer().getConsoleSender().sendMessage("§bSchematic §a" + schematic + " §bloaded!");
+            });
+        }*/
     }
 
     public ShapedRecipe getRecipe(){

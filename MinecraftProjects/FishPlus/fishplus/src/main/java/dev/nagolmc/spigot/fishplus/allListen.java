@@ -104,7 +104,6 @@ public class allListen implements Listener{
 
             //Treasure-Finder Enchant
             catchTreasureChance += 5*(plugin.treasurefinder.getLevel("Treasure-Finder", lore));//Replace 1 with Treasure-FinderLevel Max of 10
-            
             //Mob-Catcher Enchant
             catchMobChance += 5*(plugin.mobcatcher.getLevel("Mob-Catcher", lore));//Replace 1 with Treasure-FinderLevel Max of 10
             //Sponge Enchant
